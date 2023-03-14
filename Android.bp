@@ -41,3 +41,25 @@ java_library {
         "//packages/modules/OnDevicePersonalization:__subpackages__",
     ],
 }
+
+android_test {
+    name: "OwaspJavaEncoderTestCases",
+    srcs: [
+        "core/src/test/**/*.java",
+    ],
+    java_resource_dirs: ["core/src/test/resources"],
+    static_libs: [
+        "androidx.test.rules",
+        "owasp-java-encoder",
+    ],
+    libs: [
+        "android.test.base",
+    ],
+    min_sdk_version: "33",
+    sdk_version: "test_current",
+    test_suites: [
+        "general-tests",
+        "mts-ondevicepersonalization",
+    ],
+    visibility: ["//visibility:private"],
+}
